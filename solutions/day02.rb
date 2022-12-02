@@ -19,11 +19,11 @@ def solve_1(input)
   input.split("\n").each do |game|
     a, b = game.split(' ')
 
-    score += ['X', 'Y', 'Z'].index(b) + 1
+    score += %w[X Y Z].index(b) + 1
 
     if win_map[a] == b
       score += 6
-    elsif ['A', 'B', 'C'].index(a) == ['X', 'Y', 'Z'].index(b)
+    elsif %w[A B C].index(a) == %w[X Y Z].index(b)
       score += 3
     end
   end
@@ -46,19 +46,19 @@ def solve_2(input)
     a, b = game.split(' ')
 
     answer = case b
-      when 'X'
-        lose_map[a]
-      when 'Y'
-        ['X', 'Y', 'Z'][['A', 'B', 'C'].index(a)]
-      when 'Z'
-        win_map[a]
-      end
+             when 'X'
+               lose_map[a]
+             when 'Y'
+               %w[X Y Z][%w[A B C].index(a)]
+             when 'Z'
+               win_map[a]
+             end
 
-    score += ['X', 'Y', 'Z'].index(answer) + 1
+    score += %w[X Y Z].index(answer) + 1
 
     if win_map[a] == answer
       score += 6
-    elsif ['A', 'B', 'C'].index(a) == ['X', 'Y', 'Z'].index(answer)
+    elsif %w[A B C].index(a) == %w[X Y Z].index(answer)
       score += 3
     end
   end

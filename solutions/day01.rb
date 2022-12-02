@@ -28,7 +28,7 @@ def solve_1(input)
   end.max
 end
 
-assert_equal solve_1(test_input), 24000
+assert_equal solve_1(test_input), 24_000
 psol '1', solve_1(input)
 
 # --- Part Two ---
@@ -39,5 +39,5 @@ def solve_2(input)
   end.sort.reverse.first(3).inject(:+)
 end
 
-assert_equal solve_2(test_input), 45000
+assert_equal solve_2(test_input), 45_000
 psol '2', solve_2(input)
